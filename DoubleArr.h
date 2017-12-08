@@ -15,6 +15,8 @@ private:
 	T** pointer;
 	int rows;
 	int cols;
+
+
 	void clean()
 	{
 		if (!pointer)
@@ -106,12 +108,15 @@ public:
 		}
 	}
 
-	void  get_layer(int& row,int& col)
+	int  get_rows()
 	{
-		row = rows;
-		col = cols;
+		return rows;
 	}
 
+	int  get_cols()
+	{
+		return cols;
+	}
 	//比较不推荐，但是你懂我意思吧，其实如果你想要程序跑得通，那这两个函数都不应该出问题，但是数组出问题是很正常的啊
 	T* operator[](const int row) 
 	{
@@ -141,7 +146,6 @@ public:
 	{
 		clean();
 	}
-
 
 	friend std::ostream& operator<<(std::ostream& out, DoubleArr<T>& s)
 	{
